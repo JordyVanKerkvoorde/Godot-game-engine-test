@@ -1,7 +1,9 @@
 extends Weapon
 
-export var fire_range = 10
-
-
 func _ready():
-	raycast.cast_to = Vector3(0, 0, -fire_range)
+	fire_rate = 2
+	clip_size = 2
+	reload_rate = 1
+	total_ammo = 5
+	max_ammo = 60
+	fire_range = 10

@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://default_env.tres" type="Environment" id=2]
 [ext_resource path="res://Interactable/InteractableLightSwitch.gd" type="Script" id=3]
+[ext_resource path="res://Interactable/AmmoBox.gd" type="Script" id=4]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -41,6 +42,16 @@ material/0 = SubResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="Ground/StaticBody"]
 shape = SubResource( 3 )
 
+[node name="Ground4" type="MeshInstance" parent="."]
+transform = Transform( 77.3604, 0, 0, 0, 1, 0, 0, 0, 23.59, 42.8868, -31.2838, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Ground4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground4/StaticBody"]
+shape = SubResource( 3 )
+
 [node name="Ground2" type="MeshInstance" parent="."]
 transform = Transform( -4.72816e-06, 1, 0, -29.0213, -1.62921e-07, 0, 0, 0, 23.59, -28.3303, -2.72591, 0 )
 mesh = SubResource( 1 )
@@ -49,6 +60,16 @@ material/0 = SubResource( 2 )
 [node name="StaticBody" type="StaticBody" parent="Ground2"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground2/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Ground3" type="MeshInstance" parent="."]
+transform = Transform( -4.94262e-08, 0.0104536, -27.4348, -29.0213, -1.62921e-07, 0, -4.72797e-06, 0.99996, 0.212033, -0.390812, -2.51059, 22.184 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Ground3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground3/StaticBody"]
 shape = SubResource( 3 )
 
 [node name="LightSwitch" type="MeshInstance" parent="."]
@@ -103,10 +124,13 @@ shape = SubResource( 6 )
 
 [node name="Ammo" type="MeshInstance" parent="."]
 transform = Transform( -1.43657e-07, 0.881759, 0.846049, -1.16038, -1.8905e-07, 0, 4.62145e-08, -0.283662, 2.62993, -22.9927, -1.38628, 7.91129 )
+layers = 2
 mesh = SubResource( 7 )
 material/0 = SubResource( 8 )
 
 [node name="StaticBody" type="StaticBody" parent="Ammo"]
+collision_layer = 2
+script = ExtResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ammo/StaticBody"]
 shape = SubResource( 9 )
@@ -123,7 +147,7 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -212.0
+margin_left = -86.0
 margin_top = -65.0
 text = "AMMO:
 2/2"
@@ -142,6 +166,22 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HealthLabel" type="Label" parent="UI"]
+margin_left = 864.0
+margin_top = 535.0
+margin_right = 938.0
+margin_bottom = 600.0
+text = "HEALTH:
+100.00%"
+
+[node name="ArmorLabel" type="Label" parent="UI"]
+margin_left = 800.0
+margin_top = 535.0
+margin_right = 864.0
+margin_bottom = 600.0
+text = "ARMOR:
+100.00%"
 
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( 0.482535, 0.0359524, -0.875139, 0.872869, -0.102477, 0.477073, -0.0725297, -0.994085, -0.0808304, -26.8427, 2.82968, -0.569744 )
