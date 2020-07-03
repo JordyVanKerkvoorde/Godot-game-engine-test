@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://default_env.tres" type="Environment" id=2]
 [ext_resource path="res://Interactable/InteractableLightSwitch.gd" type="Script" id=3]
 [ext_resource path="res://Interactable/AmmoBox.gd" type="Script" id=4]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -60,6 +61,16 @@ material/0 = SubResource( 2 )
 [node name="StaticBody" type="StaticBody" parent="Ground2"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground2/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Ground5" type="MeshInstance" parent="."]
+transform = Transform( 0.0413689, 0.946604, 4.41991, 6.97204, -0.00561729, -0.0262286, 1.52411e-06, -0.322348, 12.9799, 8.3217, -2.72591, 8.68586 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Ground5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground5/StaticBody"]
 shape = SubResource( 3 )
 
 [node name="Ground3" type="MeshInstance" parent="."]
@@ -191,3 +202,6 @@ spot_range = 66.9
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 2 )
+
+[node name="Enemy" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.133312, 0, -0.991074, 0, 1, 0, 0.991074, 0, -0.133312, 11.4173, 0, 0 )
