@@ -1,2 +1,3 @@
 # ProjectBalthazar
-Godot game
+Testing the godot game engine. 
+The purpose of this project was to get some basic things done in Godot like a first person controller, collision detection, player mechanics...
